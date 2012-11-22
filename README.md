@@ -1,0 +1,1 @@
+Personal Man Pages is a command line utiltiy for keeping notes about anything and everything. Notes can be tagged and searched easily. The goal is a sort of virtual sticky note collection that is more manageable than your average pile of sticky notes.
