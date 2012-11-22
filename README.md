@@ -2,6 +2,7 @@ Personal Man Pages is a command line utiltiy for keeping notes about anything an
 The goal is a sort of virtual sticky note collection that is more manageable than your average pile of sticky notes.
 
 Create a note:
+
     > pmp add
     Please enter new note's Title:
     Run the washing machine
@@ -19,11 +20,13 @@ Create a note:
     >
 
 Or, all fill in as much as you want from one line:
+
     > pmp add --title "Nicole's Phone number" --tags "cell phone phone-number wife Nicole" --message "(123) 456-7890"
     Note saved
     >
 
 Any part not specified will be prompted for:
+    
     > pmp add --title "Home address" --tags "address"
     Please enter note text (use a double blank line to finish):
     1234 Something lane
