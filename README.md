@@ -26,7 +26,7 @@ Or, all fill in as much as you want from one line:
     >
 
 Any part not specified will be prompted for:
-    
+
     > pmp add --title "Home address" --tags "address"
     Please enter note text (use a double blank line to finish):
     1234 Something lane
