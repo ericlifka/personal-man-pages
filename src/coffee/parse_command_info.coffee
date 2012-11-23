@@ -1,5 +1,8 @@
 is_a_command = (command) ->
-    command.substr(0, 2) == "--"
+    command[0..2] == '--'
+
+strip_command_marker = (command) ->
+    command[2..]
 
 break_into_groups = (args) ->
     results = []
@@ -18,7 +21,7 @@ command_info_parser = (argv) ->
 
     add_command = (command) ->
         command_name = command.shift()
-        descriptor[command_name] = command.join ' '
+        descriptor[strip_command_marker command_name] = command.join ' '
 
     descriptor.engine = argv.shift()
     descriptor.script = argv.shift()

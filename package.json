@@ -1,0 +1,23 @@
+{
+    "name": "personal-man-pages",
+    "version": "0.0.1",
+    "author": "Eric Lifka <eric.lifka@gmail.com>",
+    "description": "A simple note taking utility for keeping track of the complexities of life",
+    "license": "MIT",
+
+    "dependencies": {
+        "coffee-script": "latest",
+        "mocha":"latest",
+        "should":"latest"
+    },
+    "scripts": {
+        "test": "mocha --compilers coffee:coffee-script"
+    },
+    "engines": {
+        "node": ">=0.8"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ericlifka/personal-man-pages.git"
+    }
+}

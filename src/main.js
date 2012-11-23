@@ -1,5 +1,4 @@
-var PRODUCT = PRODUCT || {};
+require('coffee-script');
 
-PRODUCT.main.js = (function () {
-
-}());
+personal_man_pages = require('./coffee/pmp.coffee');
+personal_man_pages(process.argv);
