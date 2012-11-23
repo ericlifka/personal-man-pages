@@ -1,36 +1,41 @@
-is_a_command = (command) ->
-    command[0..2] == '--'
+is_an_argument = (command) ->
+    command[0..1] == '--'
 
-strip_command_marker = (command) ->
+strip_argument_marker = (command) ->
     command[2..]
 
-break_into_groups = (args) ->
+break_into_argument_groups = (args) ->
     results = []
 
     while args.length > 0
         current = args.shift()
-        if is_a_command current
+        if is_an_argument current
             results.push []
 
         results[results.length - 1].push current
 
     results
 
-command_info_parser = (argv) ->
-    descriptor = {}
+create_arguments_descriptor = (args) ->
+    argument_descriptor = {}
+    argument_groups = break_into_argument_groups args
 
-    add_command = (command) ->
-        command_name = command.shift()
-        descriptor[strip_command_marker command_name] = command.join ' '
+    for arg_group in argument_groups
+        argument_name = strip_argument_marker arg_group.shift()
+        argument_descriptor[argument_name] = arg_group.join ' '
 
-    descriptor.engine = argv.shift()
-    descriptor.script = argv.shift()
-    descriptor.command = argv.shift()
+    argument_descriptor
 
-    command_groups = break_into_groups argv
+command_info_parser = (args) ->
+    engine = args.shift()
+    script = args.shift()
+    command = args.shift()
+    throw 'incorrect usage' unless engine? and script? and command?
 
-    add_command command for command in command_groups
-
-    descriptor
+    return descriptor =
+        engine: engine
+        script: script
+        command: command
+        arguments: create_arguments_descriptor args
 
 module.exports = command_info_parser
